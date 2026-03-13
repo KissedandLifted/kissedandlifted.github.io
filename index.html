@@ -212,16 +212,7 @@ a, button, .shop-btn {
     </div>
   </div>
 
-  <div id="password-gate">
-  <p>Enter the Birthday Password:</p>
-  <input type="password" id="pass-input" style="border-radius: 25px; border: 1px solid #d8a3b6; padding: 10px;">
-  <button onclick="checkPass()" style="background: #d8a3b6; color: white; border-radius: 25px; padding: 10px 20px; border: none;">Enter</button>
-</div>
-
-<div id="product-list" style="display: none !important; visibility: hidden">
-  </div>
-
-function checkPass() {
+<script>function checkPass() {
   var p = document.getElementById("pass-input").value;
   if (p.toUpperCase() === "BIRTHDAY40") {
     // This flips the switch to show the button
@@ -231,7 +222,10 @@ function checkPass() {
   } else {
     alert("Not the ritual password, babe. Check your email! 🎀");
   }
-}
+}</script>
+<div id="product-list" style="display: none !important; visibility: hidden">
+  </div>
+
 
   <div id='product-component-14932693385581' style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin: 30px auto;"></div>
 

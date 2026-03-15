@@ -238,96 +238,63 @@ a, button, .shop-btn {
 
 <script>
 function checkPass() {
-  var p = document.getElementById("pass-input").value;
-  // Change "BIRTHDAY40" to whatever password you want to email out!
-  if (p.toUpperCase() === "BIRTHDAY40") { 
-    document.getElementById("product-list").style.display = "block";
-    document.getElementById("password-gate").style.display = "none";
-  } else {
-    alert("Not the ritual password, babe. Check your email! 🎀");
-  }
+    var p = document.getElementById("pass-input").value;
+    if (p.toUpperCase() === "BIRTHDAY40") {
+        document.getElementById("product-list").style.display = "block";
+        document.getElementById("password-gate").style.display = "none";
+
+        // This forces Shopify to load ONLY after the password works
+        var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = scriptURL;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+
+        script.onload = function() {
+            var client = ShopifyBuy.buildClient({
+                domain: '1gwi1a-aj.myshopify.com',
+                storefrontAccessToken: '3faf9eb33779cfb6f255114eaa6820e5'
+            });
+            ShopifyBuy.UI.onReady(client).then(function(ui) {
+                ui.createComponent('product', {
+                    id: '14932693385581',
+                    node: document.getElementById('product-component-14932693385581'),
+                    options: {
+                        "product": {
+                            "styles": {
+                                "button": {
+                                    "background-color": "#d8a3b6",
+                                    "border-radius": "50px",
+                                    "padding": "12px 40px"
+                                },
+                                "button:hover": { "background-color": "#c289a0" }
+                            },
+                            "text": { "button": "Add Ritual Kit to Bag" }
+                        },
+                        "cart": {
+                            "styles": {
+                                "button": { "background-color": "#d8a3b6", "border-radius": "50px" }
+                            },
+                            "text": { "title": "Your Ritual Bag", "total": "Total Ritual Cost" }
+                        },
+                        "toggle": {
+                            "styles": {
+                                "toggle": { "background-color": "#d8a3b6" }
+                            }
+                        }
+                    }
+                });
+            });
+        };
+    } else {
+        alert("Not the ritual password, babe. Check your email! 🎀");
+    }
 }
 </script>
   
-<div id="product-list" style="display: none;">
- <div id='product-component-14932693385581' style="display:flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin: 30px auto;"></div>
-
-<script type="text/javascript">
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) { if (window.ShopifyBuy.UI) { ShopifyBuyInit(); } else { loadScript(); } } else { loadScript(); }
-  function loadScript() {
-    var script = document.createElement('script'); script.async = true; script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: '1gwi1a-aj.myshopify.com',
-      storefrontAccessToken: '3faf9eb33779cfb6f255114eaa6820e5',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '14932693385581',
-        node: document.getElementById('product-component-14932693385581'),
-        moneyFormat: '%24%7B%7Bamount%7D%7D',
-        options: {
-          "product": {
-            "styles": {
-              "product": { "text-align": "center", "max-width": "100%", "margin-left": "0" },
-              "button": {
-                "font-family": "Lato, sans-serif",
-                "font-weight": "bold",
-                "font-size": "15px",
-                "padding-top": "12px",
-                "padding-bottom": "12px",
-                "padding-left": "40px",
-                "padding-right": "40px",
-                "color": "#ffffff",
-                "background-color": "#d8a3b6",
-                "border-radius": "50px",
-                ":hover": { "background-color": "#c293a4" }
-              },
-              "price": { "font-family": "Lato, sans-serif", "font-size": "20px", "color": "#5a4a4a", "margin-bottom": "8px" }
-            },
-            "contents": { "img": false, "title": false, "description": false, "price": true },
-            "text": { "button": "Add Ritual Kit to Bag" }
-          },
-          "cart": {
-            "styles": {
-              "button": {
-                "background-color": "#d8a3b6", 
-                "border-radius": "50px", 
-                ":hover": { "background-color": "#c293a4" }
-              },
-              "title": { "color": "#5a4a4a" },
-              "header": { "color": "#5a4a4a" }
-            },
-            "text": { 
-              "title": "Your Ritual Bag", 
-              "button": "Checkout",
-              "total": "Total Ritual Cost"
-            }
-          },
-          "toggle": {
-            "styles": {
-              "toggle": {
-                "background-color": "#d8a3b6",
-                ":hover": { "background-color": "#c293a4" }
-              },
-              "count": { "font-size": "14px" }
-            }
-          }
-        }
-      });
-    });
-  }
-})();
-</script>
 </section>
   </div>
-  
-<section class="section" id="faq">
+  <section class="section" id="faq">
   <h2>The Ritual FAQ</h2>
   <div class="faq">
     

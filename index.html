@@ -1,11 +1,14 @@
 <html lang="en">
-  <script>
+  <!-- MailerLite Universal -->
+<script>
     (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
     .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
     n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
     (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
     ml('account', '2186517');
 </script>
+<!-- End MailerLite Universal -->
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,16 +24,16 @@
 }
 
   header {
-    background-color: #ffffff;
+    background-color: #ffffff; /* Or whatever your background color is */
     padding: 20px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Optional: adds a soft luxury shadow */
 }
 
 section {
-    padding-top: 80px; 
+    padding-top: 80px; /* This prevents the header from covering your titles */
 }
   
 html { scroll-behavior: smooth; }
@@ -44,7 +47,7 @@ nav a:hover { color: #D8A3B6; }
 /* HEADER & LOGO UNIT */
 header { 
   background: linear-gradient(135deg, #FFF3EC, #FFD6E0); 
-  padding: 40px 20px 100px; 
+  padding: 40px 20px 100px; /* Reduced top to fix the 'forehead' gap */
   display: flex; 
   flex-direction: column; 
   align-items: center; 
@@ -64,7 +67,7 @@ header {
   font-weight: bold; 
   font-size: 26px; 
   color: #D8A3B6; 
-  margin-top: -160px !important; 
+  margin-top: -160px !important; /* Aggressive snap to logo */
   letter-spacing: 1px;
   position: relative;
   z-index: 10;
@@ -86,7 +89,7 @@ p { line-height: 1.8; color: #5a4a4a; }
   background: white;
   padding: 30px 20px;
   width: 280px;
-  border-radius: 35px; 
+  border-radius: 35px; /* Luxury rounded look */
   box-shadow: 0 15px 35px rgba(216, 163, 182, 0.12);
   transition: 0.3s;
   display: flex;
@@ -106,24 +109,62 @@ p { line-height: 1.8; color: #5a4a4a; }
 
 .product-card h3 { font-family: 'Playfair Display', serif; color: #D8A3B6; margin-bottom: 10px; font-size: 22px; }
 
-/* FAQ */
+.shop-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #D8A3B6;
+  color: white;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  cursor: default;
+}
+
+/* FAQ & FOOTER */
 .faq { text-align: left; max-width: 700px; margin: auto; margin-top: 40px; }
 .faq-item { margin-bottom: 25px; border-bottom: 1px solid rgba(216, 163, 182, 0.15); padding-bottom: 15px; }
 
 .signup { background: #FFF0F4; padding: 70px 20px; }
+.signup input { padding: 14px; width: 250px; border-radius: 30px; border: 1px solid #ddd; outline: none; }
+.signup button { padding: 14px 30px; border: none; background: #D8A3B6; color: white; border-radius: 30px; cursor: pointer; margin-left: 10px; font-weight: 600; }
 
 footer { padding: 40px; font-size: 14px; background: white; border-top: 1px solid rgba(216, 163, 182, 0.1); }
 
-/* CURSOR */
+@media (max-width: 700px) {
+  .logo { width: 300px; }
+  .tagline { margin-top: -100px !important; font-size: 20px; }
+  .products { flex-direction: column; align-items: center; }
+}
+/* CLEAN COSMETIC SPARKLE CURSOR */
 html, body {
     cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23D8A3B6' d='M12 0l2.5 9.5L24 12l-9.5 2.5L12 24l-2.5-9.5L0 12l9.5-2.5z'/%3E%3C/svg%3E"), auto;
 }
 
-a, button {
+/* Ensure buttons still feel clickable */
+a, button, .shop-btn {
     cursor: pointer;
+}
+
+/* BACK TO TOP BUTTON */
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #D8A3B6;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 50px;
+  font-weight: bold;
+  display: none;
+  z-index: 1000;
+  cursor: pointer;
 }
 </style>
 </head>
+
 <body>
 
 <nav>
@@ -131,8 +172,8 @@ a, button {
   <a href="#about">About</a>
   <a href="#shop">Shop</a>
   <a href="#faq">FAQ</a>
-  <a href="#newsletter">Join</a>
   <a href="https://www.instagram.com/kissedandlifted_" target="_blank">Instagram</a>
+  <a href="#newsletter">Join</a>
 </nav>
 
 <header>
@@ -195,32 +236,38 @@ a, button {
 </div>
 
 <div id="product-list" style="display: none;">
- <div id='product-component-14932693385581'></div>
+ <div id='product-component-14932693385581' style="display:flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin: 30px auto;"></div>
 </div>
+
 </section>
 
 <section class="section" id="faq">
   <h2>The Ritual FAQ</h2>
   <div class="faq">
+    
     <div class="faq-item">
       <strong>Is the formula vegan and cruelty-free?</strong>
       <p>Absolutely. Kissed & Lifted is 100% vegan. We never test on animals, and we don't use any animal-derived ingredients.</p>
     </div>
+
     <div class="faq-item">
       <strong>Are your products safe for sensitive lips?</strong>
       <p>Our formulas are made with gentle oils, butters, and skin-loving ingredients. If you have extremely sensitive skin, patch testing is recommended.</p>
     </div>
+
     <div class="faq-item">
       <strong>Do your products brighten dark lips?</strong>
       <p>Our overnight lip mask and routine help support smoother, softer lips and may help improve the appearance of uneven tone over time with consistent use.</p>
     </div>
+
     <div class="faq-item">
       <strong>How long does shipping take?</strong>
       <p>Once your order is processed, shipping typically takes 3-5 business days. You will receive a tracking number as soon as your ritual is on the way.</p>
     </div>
+
   </div>
 </section>
-  
+
 <div id="birthday-timer" style="background: #fffafb; padding: 40px 20px; text-align: center; border-top: 1px solid #fdf2f5; border-bottom: 1px solid #fdf2f5;">
     <h3 style="color: #d8a3b6; margin-bottom: 10px; font-family: 'Playfair Display', serif;">THE BIRTHDAY DROP: 03.30</h3>
     <div id="timer" style="font-size: 32px; font-weight: bold; color: #5a4a4a; font-family: monospace;">00d 00h 00m 00s</div>
@@ -228,43 +275,17 @@ a, button {
 
 <section id="newsletter" style="background-color: #fdf7f8; padding: 80px 20px; text-align: center;">
     <h2 style="font-family: 'Playfair Display', serif;">Join the Ritual</h2>
-    <div id="mlb2-38399192" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38399192">
-      <div class="ml-form-align-center">
-        <div class="ml-form-embedWrapper embedForm">
-          <div class="ml-form-embedBody ml-form-embedBodyHorizontal row-form">
-            <div class="ml-form-embedContent">
-              <h4>Stay in the Glow</h4>
-              <p>Be the first to know about restocks and secret birthday drops.</p>
-            </div>
-            <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2186517/forms/38399192/subscribe" data-code="p1n6x1" method="POST" target="_blank">
-              <div class="ml-form-formContent horozintalForm">
-                <div class="ml-form-fieldRow">
-                  <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                    <input type="email" class="form-control" name="fields[email]" placeholder="Email" autocomplete="email">
-                  </div>
-                </div>
-                <div class="ml-form-horizontalRow">
-                  <button type="submit" class="primary">Join</button>
-                  <button disabled="disabled" style="display: none;" type="button" class="loading">
-                    <div class="ml-form-embedSubmitLoad"></div>
-                    <span class="sr-only">Loading...</span>
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
+    <div id="mlb2-38399192" class="ml-form-embedContainer"></div>
 </section>
-  
+
 <footer>
-  © 2026 Kissed & Lifted <br>
-  Soft lips. Big energy.
+  &copy; 2026 Kissed & Lifted. All rights reserved.
 </footer>
-  
+
+<button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Back to Top</button>
+
 <script>
+// PASSWORD CHECK
 function checkPass() {
   var p = document.getElementById("pass-input").value;
   if (p.toUpperCase() === "BIRTHDAY40") { 
@@ -275,35 +296,87 @@ function checkPass() {
   }
 }
 
-function updateBirthdayTimer() {
-    const launchDate = new Date("March 30, 2026 00:00:00").getTime();
-    const now = new Date().getTime();
-    const diff = launchDate - now;
-    if (diff <= 0) { document.getElementById("timer").innerHTML = "WE ARE LIVE!"; return; }
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-    document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-}
-updateBirthdayTimer();
-setInterval(updateBirthdayTimer, 1000);
-
+// SHOPIFY BUY BUTTON
 (function () {
   var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  var script = document.createElement('script'); script.async = true; script.src = scriptURL;
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-  script.onload = function() {
-    var client = ShopifyBuy.buildClient({ domain: '1gwi1a-aj.myshopify.com', storefrontAccessToken: '3faf9eb33779cfb6f255114eaa6820e5' });
+  if (window.ShopifyBuy) { if (window.ShopifyBuy.UI) { ShopifyBuyInit(); } else { loadScript(); } } else { loadScript(); }
+  function loadScript() {
+    var script = document.createElement('script'); script.async = true; script.src = scriptURL;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+    script.onload = ShopifyBuyInit;
+  }
+  function ShopifyBuyInit() {
+    var client = ShopifyBuy.buildClient({
+      domain: '1gwi1a-aj.myshopify.com',
+      storefrontAccessToken: '3faf9eb33779cfb6f255114eaa6820e5',
+    });
     ShopifyBuy.UI.onReady(client).then(function (ui) {
       ui.createComponent('product', {
         id: '14932693385581',
         node: document.getElementById('product-component-14932693385581'),
-        options: { "product": { "styles": { "button": { "background-color": "#d8a3b6", "border-radius": "50px" } } } }
+        moneyFormat: '%24%7B%7Bamount%7D%7D',
+        options: {
+          "product": {
+            "styles": {
+              "product": { "text-align": "center", "max-width": "100%", "margin-left": "0" },
+              "button": {
+                "font-family": "Lato, sans-serif",
+                "font-weight": "bold",
+                "font-size": "15px",
+                "padding-top": "12px",
+                "padding-bottom": "12px",
+                "padding-left": "40px",
+                "padding-right": "40px",
+                "color": "#ffffff",
+                "background-color": "#d8a3b6",
+                "border-radius": "50px",
+                ":hover": { "background-color": "#c293a4" }
+              },
+              "price": { "font-family": "Lato, sans-serif", "font-size": "20px", "color": "#5a4a4a", "margin-bottom": "8px" }
+            },
+            "contents": { "img": false, "title": false, "description": false, "price": true },
+            "text": { "button": "Add Ritual Kit to Bag" }
+          },
+          "cart": {
+            "styles": {
+              "button": { "background-color": "#d8a3b6", "border-radius": "50px", ":hover": { "background-color": "#c293a4" } },
+              "title": { "color": "#5a4a4a" },
+              "header": { "color": "#5a4a4a" }
+            },
+            "text": { "title": "Your Ritual Bag", "button": "Checkout", "total": "Total Ritual Cost" }
+          },
+          "toggle": {
+            "styles": { "toggle": { "background-color": "#d8a3b6", ":hover": { "background-color": "#c293a4" } }, "count": { "font-size": "14px" } }
+          }
+        }
       });
     });
-  };
+  }
 })();
+
+// BACK TO TOP SHOW/HIDE
+window.onscroll = function() {
+  var btn = document.getElementById("backToTop");
+  if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+};
+
+// BIRTHDAY TIMER
+var countDownDate = new Date("March 30, 2026 00:00:00").getTime();
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+  var d = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000*60*60));
+  var m = Math.floor((distance % (1000 * 60 * 60)) / (1000*60));
+  var s = Math.floor((distance % (1000 * 60)) / 1000);
+  document.getElementById("timer").innerHTML = d + "d " + h + "h " + m + "m " + s + "s";
+  if (distance < 0) { clearInterval(x); document.getElementById("timer").innerHTML = "THE RITUAL IS LIVE!"; }
+}, 1000);
 </script>
+
 </body>
 </html>

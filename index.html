@@ -240,10 +240,11 @@ a, button, .shop-btn {
 function checkPass() {
     var p = document.getElementById("pass-input").value;
     if (p.toUpperCase() === "BIRTHDAY40") {
+        // 1. Show the products and hide the gate
         document.getElementById("product-list").style.display = "block";
         document.getElementById("password-gate").style.display = "none";
 
-        // This forces Shopify to load ONLY after the password works
+        // 2. Load Shopify ONLY now that the section is visible
         var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
         var script = document.createElement('script');
         script.async = true;
@@ -265,22 +266,11 @@ function checkPass() {
                                 "button": {
                                     "background-color": "#d8a3b6",
                                     "border-radius": "50px",
-                                    "padding": "12px 40px"
-                                },
-                                "button:hover": { "background-color": "#c289a0" }
+                                    "padding": "12px 40px",
+                                    "font-family": "Poppins, sans-serif"
+                                }
                             },
                             "text": { "button": "Add Ritual Kit to Bag" }
-                        },
-                        "cart": {
-                            "styles": {
-                                "button": { "background-color": "#d8a3b6", "border-radius": "50px" }
-                            },
-                            "text": { "title": "Your Ritual Bag", "total": "Total Ritual Cost" }
-                        },
-                        "toggle": {
-                            "styles": {
-                                "toggle": { "background-color": "#d8a3b6" }
-                            }
                         }
                     }
                 });

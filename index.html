@@ -14,31 +14,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kissed & Lifted</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-<style>
-  /* BACK TO TOP BUTTON */
-#backToTop {
-  display: none; /* Hidden by default */
-  position: fixed; 
-  bottom: 30px; 
-  right: 30px; 
-  z-index: 99; 
-  border: none; 
-  outline: none; 
-  background-color: #D8A3B6; /* Your brand pink */
-  color: #5a4a4a; /* Brand font color */
-  cursor: pointer; 
-  padding: 15px 20px; 
-  border-radius: 50px; /* Rounded pill shape */
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  box-shadow: 0 4px 15px rgba(216, 163, 182, 0.3);
-  transition: 0.3s;
-}
 
-#backToTop:hover {
-  background-color: #fce4ec; /* Lighter pink on hover */
-  transform: translateY(-5px);
+  <style>
+ #backToTop {
+    display: block !important; /* Force it to show so we can find it */
+    position: fixed !important;
+    bottom: 40px !important;
+    right: 40px !important;
+    z-index: 999999 !important; /* Put it above EVERYTHING */
+    background-color: #D8A3B6;
+    color: #5a4a4a;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
 /* GENERAL STYLES */
   #product-component-14932693385581 {
@@ -1117,22 +1108,19 @@ function checkPass() {
     updateBirthdayTimer();
     setInterval(updateBirthdayTimer, 1000);
   
-// Consolidate the back to top logic
-const bttButton = document.getElementById("backToTop");
-
-window.addEventListener("scroll", function() {
-  // Show button after scrolling 300px
-  if (window.pageYOffset > 300) {
-    bttButton.style.display = "block";
-  } else {
-    bttButton.style.display = "none";
-  }
-});
+window.onscroll = function() {
+    var btn = document.getElementById("backToTop");
+    if (document.documentElement.scrollTop > 300 || document.body.scrollTop > 300) {
+        btn.style.setProperty('display', 'block', 'important');
+    } else {
+        btn.style.setProperty('display', 'none', 'important');
+    }
+};
 
 function topFunction() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({top: 0, behavior: 'smooth'});
 }
 </script>
-  <button onclick="topFunction()" id="backToTop" title="Go to top">Back to Top ↑</button>
+ <button onclick="topFunction()" id="backToTop">Back to Top ↑</button>
 </body>
 </html>

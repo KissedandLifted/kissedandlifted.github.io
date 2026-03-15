@@ -1116,23 +1116,21 @@ function checkPass() {
     }
     updateBirthdayTimer();
     setInterval(updateBirthdayTimer, 1000);
-  // Get the button
-let mybutton = document.getElementById("backToTop");
+  
+// Consolidate the back to top logic
+const bttButton = document.getElementById("backToTop");
 
-// When the user scrolls down 300px from the top, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-    mybutton.style.display = "block";
+window.addEventListener("scroll", function() {
+  // Show button after scrolling 300px
+  if (window.pageYOffset > 300) {
+    bttButton.style.display = "block";
   } else {
-    mybutton.style.display = "none";
+    bttButton.style.display = "none";
   }
-}
+});
 
-// When the user clicks, scroll to the top
 function topFunction() {
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
   <button onclick="topFunction()" id="backToTop" title="Go to top">Back to Top ↑</button>

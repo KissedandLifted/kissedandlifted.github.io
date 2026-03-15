@@ -242,7 +242,7 @@ function checkPass() {
         document.getElementById("product-list").style.display = "block";
         document.getElementById("password-gate").style.display = "none";
 
-        // 2. Wait 300ms to make sure the "product-component" div is ready
+        // 2. Wait for the div to be ready, then load Shopify
         setTimeout(function() {
             var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
             var script = document.createElement('script');
@@ -280,7 +280,7 @@ function checkPass() {
                     });
                 });
             };
-        }, 300); // This tiny delay makes all the difference
+        }, 500); // Increased to 500ms to be safe
     } else {
         alert("Not the ritual password, babe. Check your email! 🎀");
     }

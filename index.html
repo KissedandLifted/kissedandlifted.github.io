@@ -216,10 +216,9 @@ a, button, .shop-btn {
 <div id="password-gate" style="text-align: center; margin: 50px 0;">
   <p style="color: #5A4A4A; font-family: serif;">Enter the Birthday Password:</p>
   <input type="password" id="pass-input" style="border-radius: 25px; border: 1px solid #D8A3B6; padding: 10px; outline: none;">
-  <button onclick="checkPass()" style="background: #D8A3B6; color: white; border-radius: 25px; padding: 10px 20px; border: none; cursor: pointer; font-weight: bold;">ENTER</button>
+  <button onclick="checkPass()" ">ENTER<style="background: #D8A3B6; color: white; border-radius: 25px; padding: 10px 20px; border: none; cursor: pointer; font-weight: bold; </button>
 </div>
-
-
+    
 <script>
 function checkPass() {
   var p = document.getElementById("pass-input").value;
@@ -306,7 +305,6 @@ function checkPass() {
       });
     });
   }
-})();
 </script>
 </section>
   </div>

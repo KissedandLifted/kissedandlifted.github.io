@@ -15,6 +15,30 @@
 <title>Kissed & Lifted</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 <style>
+/* Center the main content and hide horizontal overflow */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#MainContent {
+    width: 100%;
+    max-width: 500px; /* Standard bio-link width */
+    margin: 0 auto;
+    text-align: center;
+}
+
+.password-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
 /* GENERAL STYLES */
   #product-component-14932693385581 {
     display: flex;
@@ -213,7 +237,7 @@ a, button, .shop-btn {
   </div>
 
 <div id="password-gate" style="text-align: center; margin: 120px auto; max-width: 450px;">
-    <h2 style="font-family: 'Poppins', sans-serif; color: #5a4a4a; letter-spacing: 2px; font-weight: 600;">THE BIRTHDAY RITUAL</h2>
+    <h2 style="font-family: 'Poppins', sans-serif; color: #5a4a4a; letter-spacing: 2px; font-weight: 600;">Enter the Password:</h2>
     <p style="font-family: 'Poppins', sans-serif; color: #d8a3b6; font-size: 13px; margin-bottom: 25px; text-transform: uppercase;">Invitation Required</p>
     <input type="password" id="pass-input" placeholder="INVITE CODE" style="padding: 15px; border-radius: 50px; border: 1px solid #d8a3b6; margin-bottom: 15px; width: 85%; text-align: center; font-family: 'Poppins', sans-serif; outline: none;">
     <br>

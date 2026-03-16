@@ -31,13 +31,7 @@
     cursor: pointer;
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
-/* GENERAL STYLES */
-  #product-component-14932693385581 {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin: 20px 0;
-}
+/* GENERAL STYLES *
 
   header {
     background-color: #ffffff; /* Or whatever your background color is */
@@ -238,49 +232,42 @@ a, button, .shop-btn {
 function checkPass() {
     var p = document.getElementById("pass-input").value;
     if (p.toUpperCase() === "BIRTHDAY40") {
-        // 1. Show the products immediately
         document.getElementById("product-list").style.display = "block";
         document.getElementById("password-gate").style.display = "none";
 
-        // 2. Wait for the div to be ready, then load Shopify
-        setTimeout(function() {
-            var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-            var script = document.createElement('script');
-            script.async = true;
-            script.src = scriptURL;
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+        var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = scriptURL;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
 
-            script.onload = function() {
-                var client = ShopifyBuy.buildClient({
-                    domain: '1gwi1a-aj.myshopify.com',
-                    storefrontAccessToken: '3faf9eb33779cfb6f255114eaa6820e5'
-                });
-                ShopifyBuy.UI.onReady(client).then(function(ui) {
-                    ui.createComponent('product', {
-                        id: '14932693385581',
-                        node: document.getElementById('product-component-14932693385581'),
-                        options: {
-                            "product": {
-                                "styles": {
-                                    "button": {
-                                        "background-color": "#d8a3b6",
-                                        "border-radius": "50px",
-                                        "padding": "12px 40px",
-                                        "font-family": "Poppins, sans-serif"
-                                    }
+        script.onload = function() {
+            var client = ShopifyBuy.buildClient({
+                domain: '1gwi1a-aj.myshopify.com',
+                storefrontAccessToken: '3faf9eb33779cfb6f255114eaa6820e5'
+            });
+            ShopifyBuy.UI.onReady(client).then(function (ui) {
+                ui.createComponent('product', {
+                    id: '14932693385581',
+                    node: document.getElementById('product-component-14932693385581'),
+                    options: {
+                        "product": {
+                            "styles": {
+                                "button": {
+                                    "font-family": "Poppins, sans-serif",
+                                    "background-color": "#d8a3b6",
+                                    "color": "#5a4a4a",
+                                    "border-radius": "50px",
+                                    "padding": "12px 40px"
                                 },
-                                "text": { "button": "Add Ritual Kit to Bag" }
+                                "button:hover": { "background-color": "#c289a0" }
                             },
-                            "cart": {
-                                "styles": {
-                                    "button": { "background-color": "#d8a3b6", "border-radius": "50px" }
-                                }
-                            }
+                            "text": { "button": "Add Ritual Kit to Bag" }
                         }
-                    });
+                    }
                 });
-            };
-        }, 500); // Increased to 500ms to be safe
+            });
+        };
     } else {
         alert("Not the ritual password, babe. Check your email! 🎀");
     }

@@ -14,24 +14,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kissed & Lifted</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-
-  <style>
- #backToTop {
-    display: block !important; /* Force it to show so we can find it */
-    position: fixed !important;
-    bottom: 40px !important;
-    right: 40px !important;
-    z-index: 999999 !important; /* Put it above EVERYTHING */
-    background-color: #D8A3B6;
-    color: #5a4a4a;
-    padding: 15px 25px;
-    border-radius: 50px;
-    font-family: 'Poppins', sans-serif;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+<style>
+/* GENERAL STYLES */
+  #product-component-14932693385581 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0;
 }
-/* GENERAL STYLES *
 
   header {
     background-color: #ffffff; /* Or whatever your background color is */
@@ -222,72 +212,106 @@ a, button, .shop-btn {
       <p>A rich overnight treatment designed to deeply hydrate lips while you sleep.</p>
     </div>
   </div>
-  </section>
-  <div id="password-gate" style="text-align: center; margin-top: 50px; margin-bottom: 50px;">
-    <h2 style="font-family: 'Poppins', sans-serif; color: #5a4a4a;">Enter Ritual Password</h2>
-    <input type="password" id="pass-input" placeholder="••••••••" style="padding: 12px; border-radius: 5px; border: 1px solid #d8a3b6; margin-bottom: 10px; width: 250px;">
-    <br>
-    <button onclick="checkPass()" style="background-color: #d8a3b6; color: white; border: none; padding: 12px 40px; border-radius: 50px; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: bold;">ENTER</button>
+
+<div id="password-gate" style="text-align: center; margin: 50px 0;">
+  <p style="color: #5A4A4A; font-family: serif;">Enter the Birthday Password:</p>
+  <input type="password" id="pass-input" style="border-radius: 25px; border: 1px solid #D8A3B6; padding: 10px; outline: none;">
+  <button onclick="checkPass()" style="background: #D8A3B6; color: white; border-radius: 25px; padding: 10px 20px; border: none; cursor: pointer; font-weight: bold;">ENTER</button>
 </div>
 
-<div id="product-list" style="display: none; text-align: center;">
-    <div id="product-component-14932693385581"></div>
-</div>
-  <script>
+
+<script>
 function checkPass() {
-    var p = document.getElementById("pass-input").value;
-    
-    if (p.toUpperCase() === "BIRTHDAY40") {
-        // Unlock the products
-        document.getElementById("product-list").style.display = "block";
-        document.getElementById("password-gate").style.display = "none";
-
-        // Call the Shopify Script now that the div is visible
-        var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = scriptURL;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-
-        script.onload = function() {
-            var client = ShopifyBuy.buildClient({
-                domain: '1gwi1a-aj.myshopify.com',
-                storefrontAccessToken: '3faf9eb33779cfb6f255114eaa6820e5'
-            });
-            ShopifyBuy.UI.onReady(client).then(function (ui) {
-                ui.createComponent('product', {
-                    id: '14932693385581',
-                    node: document.getElementById('product-component-14932693385581'),
-                    options: {
-                        "product": {
-                            "styles": {
-                                "button": {
-                                    "font-family": "Poppins, sans-serif",
-                                    "background-color": "#d8a3b6",
-                                    "color": "#5a4a4a",
-                                    "border-radius": "50px",
-                                    "padding": "12px 40px",
-                                    "font-weight": "bold"
-                                },
-                                "button:hover": { "background-color": "#c289a0" }
-                            },
-                            "text": { "button": "Add Ritual Kit to Bag" }
-                        }
-                    }
-                });
-            });
-        };
-    } else {
-        alert("Not the ritual password, babe. Check your email! 🎀");
-    }
+  var p = document.getElementById("pass-input").value;
+  // Change "BIRTHDAY40" to whatever password you want to email out!
+  if (p.toUpperCase() === "BIRTHDAY40") { 
+    document.getElementById("product-list").style.display = "block";
+    document.getElementById("password-gate").style.display = "none";
+  } else {
+    alert("Not the ritual password, babe. Check your email! 🎀");
+  }
 }
 </script>
-
-
   
+<div id="product-list" style="display: none;">
+ <div id='product-component-14932693385581' style="display:flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin: 30px auto;"></div>
+
+<script type="text/javascript">
+(function () {
+  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+  if (window.ShopifyBuy) { if (window.ShopifyBuy.UI) { ShopifyBuyInit(); } else { loadScript(); } } else { loadScript(); }
+  function loadScript() {
+    var script = document.createElement('script'); script.async = true; script.src = scriptURL;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+    script.onload = ShopifyBuyInit;
+  }
+  function ShopifyBuyInit() {
+    var client = ShopifyBuy.buildClient({
+      domain: '1gwi1a-aj.myshopify.com',
+      storefrontAccessToken: '3faf9eb33779cfb6f255114eaa6820e5',
+    });
+    ShopifyBuy.UI.onReady(client).then(function (ui) {
+      ui.createComponent('product', {
+        id: '14932693385581',
+        node: document.getElementById('product-component-14932693385581'),
+        moneyFormat: '%24%7B%7Bamount%7D%7D',
+        options: {
+          "product": {
+            "styles": {
+              "product": { "text-align": "center", "max-width": "100%", "margin-left": "0" },
+              "button": {
+                "font-family": "Lato, sans-serif",
+                "font-weight": "bold",
+                "font-size": "15px",
+                "padding-top": "12px",
+                "padding-bottom": "12px",
+                "padding-left": "40px",
+                "padding-right": "40px",
+                "color": "#ffffff",
+                "background-color": "#d8a3b6",
+                "border-radius": "50px",
+                ":hover": { "background-color": "#c293a4" }
+              },
+              "price": { "font-family": "Lato, sans-serif", "font-size": "20px", "color": "#5a4a4a", "margin-bottom": "8px" }
+            },
+            "contents": { "img": false, "title": false, "description": false, "price": true },
+            "text": { "button": "Add Ritual Kit to Bag" }
+          },
+          "cart": {
+            "styles": {
+              "button": {
+                "background-color": "#d8a3b6", 
+                "border-radius": "50px", 
+                ":hover": { "background-color": "#c293a4" }
+              },
+              "title": { "color": "#5a4a4a" },
+              "header": { "color": "#5a4a4a" }
+            },
+            "text": { 
+              "title": "Your Ritual Bag", 
+              "button": "Checkout",
+              "total": "Total Ritual Cost"
+            }
+          },
+          "toggle": {
+            "styles": {
+              "toggle": {
+                "background-color": "#d8a3b6",
+                ":hover": { "background-color": "#c293a4" }
+              },
+              "count": { "font-size": "14px" }
+            }
+          }
+        }
+      });
+    });
+  }
+})();
+</script>
 </section>
   </div>
-  <section class="section" id="faq">
+  
+<section class="section" id="faq">
   <h2>The Ritual FAQ</h2>
   <div class="faq">
     
@@ -1020,8 +1044,8 @@ function checkPass() {
           </div>
         </div>
       </div>
-    </div
-       </section>
+  </div>
+   </section>
 
   
 
@@ -1040,6 +1064,7 @@ function checkPass() {
         <script>
             fetch("https://assets.mailerlite.com/jsonp/2186517/forms/181792171737744426/takel")
         </script>
+  </section>
   
 <footer>
   © 2026 Kissed & Lifted <br>
@@ -1067,8 +1092,8 @@ function checkPass() {
     }
     updateBirthdayTimer();
     setInterval(updateBirthdayTimer, 1000);
-  
-window.onscroll = function() {
+
+  window.onscroll = function() {
     var btn = document.getElementById("backToTop");
     if (document.documentElement.scrollTop > 300 || document.body.scrollTop > 300) {
         btn.style.setProperty('display', 'block', 'important');
@@ -1079,8 +1104,7 @@ window.onscroll = function() {
 
 function topFunction() {
     window.scrollTo({top: 0, behavior: 'smooth'});
-}
 </script>
- <button onclick="topFunction()" id="backToTop">Back to Top ↑</button>
+   <button onclick="topFunction()" id="backToTop">Back to Top ↑</button>
 </body>
 </html>

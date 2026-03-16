@@ -212,28 +212,29 @@ a, button, .shop-btn {
     </div>
   </div>
 
-<div id="password-gate" style="text-align: center; margin-top: 100px;">
-    <h2 style="font-family: 'Poppins', sans-serif; color: #5a4a4a;">THE BIRTHDAY RITUAL</h2>
-    <input type="password" id="pass-input" placeholder="Enter Invite Code" style="padding: 12px; border-radius: 50px; border: 1px solid #d8a3b6; margin-bottom: 10px; width: 250px; text-align: center;">
+<div id="password-gate" style="text-align: center; margin: 120px auto; max-width: 450px;">
+    <h2 style="font-family: 'Poppins', sans-serif; color: #5a4a4a; letter-spacing: 2px; font-weight: 600;">THE BIRTHDAY RITUAL</h2>
+    <p style="font-family: 'Poppins', sans-serif; color: #d8a3b6; font-size: 13px; margin-bottom: 25px; text-transform: uppercase;">Invitation Required</p>
+    <input type="password" id="pass-input" placeholder="INVITE CODE" style="padding: 15px; border-radius: 50px; border: 1px solid #d8a3b6; margin-bottom: 15px; width: 85%; text-align: center; font-family: 'Poppins', sans-serif; outline: none;">
     <br>
-    <button onclick="checkPass()" style="background-color: #d8a3b6; color: white; border: none; padding: 12px 40px; border-radius: 50px; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: bold;">ENTER</button>
+    <button onclick="checkPass()" style="background-color: #d8a3b6; color: white; border: none; padding: 15px 60px; border-radius: 50px; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: bold; letter-spacing: 2px; transition: 0.3s;">ENTER</button>
 </div>
 
-<div id="product-list" style="display: none; text-align: center; margin-top: 50px;">
+<div id="product-list" style="display: none; text-align: center; padding: 60px 0;">
     <div id="product-component-14932693385581"></div>
 </div>
-
 
 <script>
 function checkPass() {
     var p = document.getElementById("pass-input").value;
     
     if (p.toUpperCase() === "BIRTHDAY40") {
-        // 1. Reveal the section
+        // 1. Reveal and scroll
         document.getElementById("product-list").style.display = "block";
         document.getElementById("password-gate").style.display = "none";
+        window.scrollTo({ top: 0, behavior: 'smooth' });
 
-        // 2. Load Shopify library ONLY after the section is visible
+        // 2. Load Shopify
         var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
         var script = document.createElement('script');
         script.async = true;
@@ -254,14 +255,31 @@ function checkPass() {
                             "styles": {
                                 "button": {
                                     "font-family": "Poppins, sans-serif",
+                                    "font-weight": "bold",
                                     "background-color": "#d8a3b6",
                                     "color": "#ffffff",
                                     "border-radius": "50px",
-                                    "padding": "15px 45px",
-                                    "font-weight": "bold"
-                                }
+                                    "padding": "15px 45px"
+                                },
+                                "button:hover": { "background-color": "#c289a0" }
                             },
                             "text": { "button": "ADD TO RITUAL BAG" }
+                        },
+                        "cart": {
+                            "styles": {
+                                "button": {
+                                    "background-color": "#d8a3b6",
+                                    "color": "#ffffff",
+                                    "border-radius": "50px"
+                                }
+                            },
+                            "text": { "title": "Your Ritual Bag", "total": "Subtotal", "button": "Checkout" }
+                        },
+                        "toggle": {
+                            "styles": {
+                                "toggle": { "background-color": "#d8a3b6" },
+                                "count": { "color": "#ffffff" }
+                            }
                         }
                     }
                 });

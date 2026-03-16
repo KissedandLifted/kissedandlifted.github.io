@@ -202,11 +202,7 @@ a, button, .shop-btn {
     Every formula is created to leave lips feeling hydrated, smooth, and elevated while embracing the effortless beauty of soft glam.
   </p>
 </section>
-  
 
-<div id="product-list" style="display: none;">
-    <div id="product-component-14932693385581"></div>
-</div>
 <section class="section" id="shop">
   <h2 class="section-title">The Lip Care Line</h2>
   <div class="products">
@@ -233,15 +229,20 @@ a, button, .shop-btn {
     <br>
     <button onclick="checkPass()" style="background-color: #d8a3b6; color: white; border: none; padding: 12px 40px; border-radius: 50px; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: bold;">ENTER</button>
 </div>
-<script>
+
+<div id="product-list" style="display: none; text-align: center;">
+    <div id="product-component-14932693385581"></div>
+</div>
+  <script>
 function checkPass() {
     var p = document.getElementById("pass-input").value;
+    
     if (p.toUpperCase() === "BIRTHDAY40") {
-        // 1. Reveal the section
+        // Unlock the products
         document.getElementById("product-list").style.display = "block";
         document.getElementById("password-gate").style.display = "none";
 
-        // 2. Load Shopify script and button
+        // Call the Shopify Script now that the div is visible
         var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
         var script = document.createElement('script');
         script.async = true;
@@ -271,11 +272,6 @@ function checkPass() {
                                 "button:hover": { "background-color": "#c289a0" }
                             },
                             "text": { "button": "Add Ritual Kit to Bag" }
-                        },
-                        "cart": {
-                            "styles": {
-                                "button": { "background-color": "#d8a3b6", "color": "#5a4a4a", "border-radius": "50px" }
-                            }
                         }
                     }
                 });
@@ -286,6 +282,8 @@ function checkPass() {
     }
 }
 </script>
+
+
   
 </section>
   </div>

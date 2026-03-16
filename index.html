@@ -212,100 +212,65 @@ a, button, .shop-btn {
     </div>
   </div>
 
-<div id="password-gate" style="text-align: center; margin: 50px 0;">
-  <p style="color: #5A4A4A; font-family: serif;">BIRTHDAY40:</p>
-  <input type="password" id="pass-input" style="border-radius: 25px; border: 1px solid #D8A3B6; padding: 10px; outline: none;">
-  <button onclick="checkPass()" style="background: #D8A3B6; color: white; border-radius: 25px; padding: 10px 20px; border: none; cursor: pointer; font-weight: bold;">ENTER</button>
+<div id="password-gate" style="text-align: center; margin-top: 100px;">
+    <h2 style="font-family: 'Poppins', sans-serif; color: #5a4a4a;">THE BIRTHDAY RITUAL</h2>
+    <input type="password" id="pass-input" placeholder="Enter Invite Code" style="padding: 12px; border-radius: 50px; border: 1px solid #d8a3b6; margin-bottom: 10px; width: 250px; text-align: center;">
+    <br>
+    <button onclick="checkPass()" style="background-color: #d8a3b6; color: white; border: none; padding: 12px 40px; border-radius: 50px; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: bold;">ENTER</button>
+</div>
+
+<div id="product-list" style="display: none; text-align: center; margin-top: 50px;">
+    <div id="product-component-14932693385581"></div>
 </div>
 
 
 <script>
 function checkPass() {
-  var p = document.getElementById("pass-input").value;
-  // Change "BIRTHDAY40" to whatever password you want to email out!
-  if (p.toUpperCase() === "BIRTHDAY40") { 
-    document.getElementById("product-list").style.display = "block";
-    document.getElementById("password-gate").style.display = "none";
-  } else {
-    alert("Not the ritual password, babe. Check your email! 🎀");
-  }
-}
-</script>
-  
-<div id="product-list" style="display: none;">
- <div id='product-component-14932693385581' style="display:flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin: 30px auto;"></div>
+    var p = document.getElementById("pass-input").value;
+    
+    if (p.toUpperCase() === "BIRTHDAY40") {
+        // 1. Reveal the section
+        document.getElementById("product-list").style.display = "block";
+        document.getElementById("password-gate").style.display = "none";
 
-<script type="text/javascript">
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) { if (window.ShopifyBuy.UI) { ShopifyBuyInit(); } else { loadScript(); } } else { loadScript(); }
-  function loadScript() {
-    var script = document.createElement('script'); script.async = true; script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: '1gwi1a-aj.myshopify.com',
-      storefrontAccessToken: '3faf9eb33779cfb6f255114eaa6820e5',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '14932693385581',
-        node: document.getElementById('product-component-14932693385581'),
-        moneyFormat: '%24%7B%7Bamount%7D%7D',
-        options: {
-          "product": {
-            "styles": {
-              "product": { "text-align": "center", "max-width": "100%", "margin-left": "0" },
-              "button": {
-                "font-family": "Lato, sans-serif",
-                "font-weight": "bold",
-                "font-size": "15px",
-                "padding-top": "12px",
-                "padding-bottom": "12px",
-                "padding-left": "40px",
-                "padding-right": "40px",
-                "color": "#ffffff",
-                "background-color": "#d8a3b6",
-                "border-radius": "50px",
-                ":hover": { "background-color": "#c293a4" }
-              },
-              "price": { "font-family": "Lato, sans-serif", "font-size": "20px", "color": "#5a4a4a", "margin-bottom": "8px" }
-            },
-            "contents": { "img": false, "title": false, "description": false, "price": true },
-            "text": { "button": "Add Ritual Kit to Bag" }
-          },
-          "cart": {
-            "styles": {
-              "button": {
-                "background-color": "#d8a3b6", 
-                "border-radius": "50px", 
-                ":hover": { "background-color": "#c293a4" }
-              },
-              "title": { "color": "#5a4a4a" },
-              "header": { "color": "#5a4a4a" }
-            },
-            "text": { 
-              "title": "Your Ritual Bag", 
-              "button": "Checkout",
-              "total": "Total Ritual Cost"
-            }
-          },
-          "toggle": {
-            "styles": {
-              "toggle": {
-                "background-color": "#d8a3b6",
-                ":hover": { "background-color": "#c293a4" }
-              },
-              "count": { "font-size": "14px" }
-            }
-          }
-        }
-      });
-    });
-  }
-})();
+        // 2. Load Shopify library ONLY after the section is visible
+        var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = scriptURL;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+
+        script.onload = function() {
+            var client = ShopifyBuy.buildClient({
+                domain: '1gwi1a-aj.myshopify.com',
+                storefrontAccessToken: '3faf9eb33779cfb6f255114eaa6820e5'
+            });
+            ShopifyBuy.UI.onReady(client).then(function (ui) {
+                ui.createComponent('product', {
+                    id: '14932693385581',
+                    node: document.getElementById('product-component-14932693385581'),
+                    options: {
+                        "product": {
+                            "styles": {
+                                "button": {
+                                    "font-family": "Poppins, sans-serif",
+                                    "background-color": "#d8a3b6",
+                                    "color": "#ffffff",
+                                    "border-radius": "50px",
+                                    "padding": "15px 45px",
+                                    "font-weight": "bold"
+                                }
+                            },
+                            "text": { "button": "ADD TO RITUAL BAG" }
+                        }
+                    }
+                });
+            });
+        };
+    } else {
+        alert("Not the ritual password, babe. Check your email! 🎀");
+    }
+}
 </script>
 </section>
   </div>

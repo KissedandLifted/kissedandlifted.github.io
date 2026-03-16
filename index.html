@@ -202,7 +202,11 @@ a, button, .shop-btn {
     Every formula is created to leave lips feeling hydrated, smooth, and elevated while embracing the effortless beauty of soft glam.
   </p>
 </section>
+  
 
+<div id="product-list" style="display: none;">
+    <div id="product-component-14932693385581"></div>
+</div>
 <section class="section" id="shop">
   <h2 class="section-title">The Lip Care Line</h2>
   <div class="products">
@@ -223,19 +227,21 @@ a, button, .shop-btn {
     </div>
   </div>
   </section>
-
-<div id="password-gate" style="text-align: center; margin: 50px 0;">
-  <p style="color: #5A4A4A; font-family: serif;">Enter the Birthday Password:</p>
-  <input type="password" id="pass-input" style="border-radius: 25px; border: 1px solid #D8A3B6; padding: 10px; outline: none;">
-  <button onclick="checkPass()">ENTER< style="background: #D8A3B6; color: white; border-radius: 25px; padding: 10px 20px; border: none; cursor: pointer; font-weight: bold;">ENTER</button>
+  <div id="password-gate" style="text-align: center; margin-top: 50px; margin-bottom: 50px;">
+    <h2 style="font-family: 'Poppins', sans-serif; color: #5a4a4a;">Enter Ritual Password</h2>
+    <input type="password" id="pass-input" placeholder="••••••••" style="padding: 12px; border-radius: 5px; border: 1px solid #d8a3b6; margin-bottom: 10px; width: 250px;">
+    <br>
+    <button onclick="checkPass()" style="background-color: #d8a3b6; color: white; border: none; padding: 12px 40px; border-radius: 50px; cursor: pointer; font-family: 'Poppins', sans-serif; font-weight: bold;">ENTER</button>
 </div>
 <script>
 function checkPass() {
     var p = document.getElementById("pass-input").value;
     if (p.toUpperCase() === "BIRTHDAY40") {
+        // 1. Reveal the section
         document.getElementById("product-list").style.display = "block";
         document.getElementById("password-gate").style.display = "none";
 
+        // 2. Load Shopify script and button
         var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
         var script = document.createElement('script');
         script.async = true;
@@ -259,11 +265,17 @@ function checkPass() {
                                     "background-color": "#d8a3b6",
                                     "color": "#5a4a4a",
                                     "border-radius": "50px",
-                                    "padding": "12px 40px"
+                                    "padding": "12px 40px",
+                                    "font-weight": "bold"
                                 },
                                 "button:hover": { "background-color": "#c289a0" }
                             },
                             "text": { "button": "Add Ritual Kit to Bag" }
+                        },
+                        "cart": {
+                            "styles": {
+                                "button": { "background-color": "#d8a3b6", "color": "#5a4a4a", "border-radius": "50px" }
+                            }
                         }
                     }
                 });

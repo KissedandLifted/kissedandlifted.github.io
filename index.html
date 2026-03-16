@@ -244,15 +244,20 @@ a, button, .shop-btn {
 <script>
 function checkPass() {
     var p = document.getElementById("pass-input").value;
-    
     if (p.toUpperCase() === "BIRTHDAY40") {
-        // 1. Reveal and scroll
-        document.getElementById("product-list").style.display = "block";
-        document.getElementById("password-gate").style.display = "none";
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // 1. Get the current scroll position so we don't jump
+        var scrollPos = window.scrollY;
 
-        // 2. Load Shopify
-        var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+        // 2. Show the shop first
+        document.getElementById("product-list").style.display = "block";
+        
+        // 3. Hide the gate
+        document.getElementById("password-gate").style.display = "none";
+
+        // 4. Force the browser to stay at that scroll position
+        window.scrollTo(0, scrollPos);
+       
+      var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
         var script = document.createElement('script');
         script.async = true;
         script.src = scriptURL;

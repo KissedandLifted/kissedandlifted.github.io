@@ -81,9 +81,16 @@ header {
 }
 
 /* SECTIONS */
+./* SECTIONS */
 .section { padding: 70px 20px; max-width: 900px; margin: auto; }
-h2 { font-family: 'Playfair Display', serif; color: #D8A3B6; font-size: 32px; margin-bottom: 20px; }
-p { line-height: 1.8; color: #5a4a4a; }
+h2 { 
+  font-family: 'Playfair Display', serif; 
+  color: #D8A3B6; 
+  font-size: 48px; /* Changed from 32px to 48px */
+  margin-bottom: 20px; 
+  font-weight: 700; /* Added for extra 'Boss' energy */
+}
+
 
 .vibe { background: #FFEFF4; padding: 65px 20px; font-size: 20px; font-style: italic; color: #5a4a4a; }
 
@@ -114,7 +121,13 @@ p { line-height: 1.8; color: #5a4a4a; }
   margin-bottom: 20px;
 }
 
-.product-card h3 { font-family: 'Playfair Display', serif; color: #D8A3B6; margin-bottom: 10px; font-size: 22px; }
+.product-card h3 { 
+  font-family: 'Playfair Display', serif; 
+  color: #D8A3B6; 
+  margin-bottom: 10px; 
+  font-size: 28px; /* Changed from 22px to 28px */
+}
+
 
 .shop-btn {
   display: inline-block;
@@ -323,11 +336,19 @@ window.onload = function() {
         });
         ShopifyBuy.UI.onReady(client).then(function (ui) {
             ui.createComponent('product', {
-                id: '14932693385581',
-                node: document.getElementById('product-component-14932693385581'),
-                options: {
-                    "product": {
-                        "styles": {
+    id: '14932693385581',
+    node: document.getElementById('product-component-14932693385581'),
+    options: {
+        "product": {
+            "layout": "horizontal", // Add this to stop the giant vertical image
+            "contents": {
+                "img": false,      // Change this to false to KILL the image
+                "title": false,    // Change to false to hide the duplicate title
+                "price": false     // Change to false to hide the duplicate price
+            },
+            "styles": {
+// ... keep the rest of your button colors the same ...
+
                             "button": {
                                 "font-family": "Poppins, sans-serif",
                                 "font-weight": "bold",

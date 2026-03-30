@@ -214,10 +214,21 @@ box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 background-color: #5a4a4a;
 } 
 
-  /* Hides the Shopify product image above the button */
-#product-component-14932693385581 .shopify-buy__product-img-wrapper {
+ /* This hides ONLY the image and the space it takes up */
+#product-component-14932693385581 .shopify-buy__product-img-wrapper,
+#product-component-14932693385581 .shopify-buy__img {
     display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
+
+/* This ensures the button stays visible and centered */
+#product-component-14932693385581 .shopify-buy__btn-wrapper {
+    display: block !important;
+    margin-top: 20px !important;
+}
+
 
     
 </style>

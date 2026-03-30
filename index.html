@@ -278,76 +278,65 @@ background-color: #5a4a4a;
 
 
 <script>
-function checkPass() {
-    var p = document.getElementById("pass-input").value;
-    if (p.toUpperCase() === "BIRTHDAY40") {
-        // 1. Get the current scroll position so we don't jump
-        var scrollPos = window.scrollY;
+// We removed the password check so the shop loads immediately on page load
+window.onload = function() {
+    // 1. Make the shop container visible immediately
+    document.getElementById("product-list").style.display = "block";
+    
+    // 2. Load the Shopify Buy Button Library
+    var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = scriptURL;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
 
-        // 2. Show the shop first
-        document.getElementById("product-list").style.display = "block";
-        
-        // 3. Hide the gate
-        document.getElementById("password-gate").style.display = "none";
-
-        // 4. Force the browser to stay at that scroll position
-        window.scrollTo(0, scrollPos);
-       
-      var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-        var script = document.createElement('script');
-        script.async = true;
-        script.src = scriptURL;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-
-        script.onload = function() {
-            var client = ShopifyBuy.buildClient({
-                domain: '1gwi1a-aj.myshopify.com',
-                storefrontAccessToken: '3faf9eb33779cfb6f255114eaa6820e5'
-            });
-            ShopifyBuy.UI.onReady(client).then(function (ui) {
-                ui.createComponent('product', {
-                    id: '14932693385581',
-                    node: document.getElementById('product-component-14932693385581'),
-                    options: {
-                        "product": {
-                            "styles": {
-                                "button": {
-                                    "font-family": "Poppins, sans-serif",
-                                    "font-weight": "bold",
-                                    "background-color": "#d8a3b6",
-                                    "color": "#ffffff",
-                                    "border-radius": "50px",
-                                    "padding": "15px 45px"
-                                },
-                                "button:hover": { "background-color": "#c58aa6" }
+    script.onload = function() {
+        var client = ShopifyBuy.buildClient({
+            domain: '1gwi1a-aj.myshopify.com',
+            storefrontAccessToken: '3faf9eb33779cfb6f255114eaa6820e5'
+        });
+        ShopifyBuy.UI.onReady(client).then(function (ui) {
+            ui.createComponent('product', {
+                id: '14932693385581',
+                node: document.getElementById('product-component-14932693385581'),
+                options: {
+                    "product": {
+                        "styles": {
+                            "button": {
+                                "font-family": "Poppins, sans-serif",
+                                "font-weight": "bold",
+                                "background-color": "#d8a3b6",
+                                "color": "#ffffff",
+                                "border-radius": "50px",
+                                "padding": "15px 45px"
                             },
-                            "text": { "button": "ADD TO BAG" }
+                            "button:hover": { "background-color": "#c58aa6" }
                         },
-                        "cart": {
-                            "styles": {
-                                "button": {
-                                    "background-color": "#d8a3b6",
-                                    "color": "#ffffff",
-                                    "border-radius": "50px"
-                                }
-                            },
-                            "text": { "title": "Your Ritual Bag", "total": "Subtotal", "button": "Checkout" }
-                        },
-                        "toggle": {
-                            "styles": {
-                                "toggle": { "background-color": "#d8a3b6" },
-                                "count": { "color": "#ffffff" }
+                        "text": { "button": "ADD TO BAG" }
+                    },
+                    "cart": {
+                        "styles": {
+                            "button": {
+                                "background-color": "#d8a3b6",
+                                "color": "#ffffff",
+                                "border-radius": "50px"
                             }
+                        },
+                        "text": { "title": "Your Ritual Bag", "total": "Subtotal", "button": "Checkout" }
+                    },
+                    "toggle": {
+                        "styles": {
+                            "toggle": { "background-color": "#d8a3b6" },
+                            "count": { "color": "#ffffff" }
                         }
                     }
-                });
+                }
             });
-        };
-    } else {
-        alert("Not the ritual password, babe. Check your email! 🎀");
-    }
-}
+        });
+    };
+};
 </script>
+
 </section>
   </div>
   

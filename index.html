@@ -81,9 +81,16 @@ header {
 }
 
 /* SECTIONS */
+./* SECTIONS */
 .section { padding: 70px 20px; max-width: 900px; margin: auto; }
-h2 { font-family: 'Playfair Display', serif; color: #D8A3B6; font-size: 32px; margin-bottom: 20px; }
-p { line-height: 1.8; color: #5a4a4a; }
+h2 { 
+  font-family: 'Playfair Display', serif; 
+  color: #D8A3B6; 
+  font-size: 48px; /* Changed from 32px to 48px */
+  margin-bottom: 20px; 
+  font-weight: 700; /* Added for extra 'Boss' energy */
+}
+
 
 .vibe { background: #FFEFF4; padding: 65px 20px; font-size: 20px; font-style: italic; color: #5a4a4a; }
 
@@ -114,7 +121,13 @@ p { line-height: 1.8; color: #5a4a4a; }
   margin-bottom: 20px;
 }
 
-.product-card h3 { font-family: 'Playfair Display', serif; color: #D8A3B6; margin-bottom: 10px; font-size: 22px; }
+.product-card h3 { 
+  font-family: 'Playfair Display', serif; 
+  color: #D8A3B6; 
+  margin-bottom: 10px; 
+  font-size: 28px; /* Changed from 22px to 28px */
+}
+
 
 .shop-btn {
   display: inline-block;
@@ -323,11 +336,19 @@ window.onload = function() {
         });
         ShopifyBuy.UI.onReady(client).then(function (ui) {
             ui.createComponent('product', {
-                id: '14932693385581',
-                node: document.getElementById('product-component-14932693385581'),
-                options: {
-                    "product": {
-                        "styles": {
+    id: '14932693385581',
+    node: document.getElementById('product-component-14932693385581'),
+    options: {
+        "product": {
+            "layout": "horizontal", // Add this to stop the giant vertical image
+            "contents": {
+                "img": false,      // Change this to false to KILL the image
+                "title": false,    // Change to false to hide the duplicate title
+                "price": false     // Change to false to hide the duplicate price
+            },
+            "styles": {
+// ... keep the rest of your button colors the same ...
+
                             "button": {
                                 "font-family": "Poppins, sans-serif",
                                 "font-weight": "bold",
@@ -1332,182 +1353,3 @@ document.documentElement.scrollTop = 0;
 
 
     
-       
-
-       
-        
-        
-        
-        
-      
-
-      
-        
-        
-        
-        
-        
-        
-        
-       
-
-    
-
-    
-
-
-      
-
-
-      
-
-      
-      
-
-      
-
-      
-
-
-
-
-
-    
-
-      
-    <div id="mlb2-38399192" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38399192">
-      <div class="ml-form-align-center ">
-        <div class="ml-form-embedWrapper embedForm">
-
-          
-          
-
-          <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-
-            <div class="ml-form-embedContent" style=" ">
-              
-                <h4>Join the List</h4>
-                
-                  <p>Signup for news and special offers!</p>
-                
-              
-            </div>
-
-            <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2186517/forms/181792171737744426/subscribe" data-code="" method="post" target="_blank">
-              <div class="ml-form-formContent">
-                
-
-                  
-                  <div class="ml-form-fieldRow ml-last-item">
-                    <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-
-                      
-
-
-                      <!-- input -->
-                      <input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Email" autocomplete="email">
-                      <!-- /input -->
-
-                      <!-- textarea -->
-                      
-                      <!-- /textarea -->
-
-                      <!-- select -->
-                      
-                      <!-- /select -->
-
-                      <!-- checkboxes -->
-            
-            <!-- /checkboxes -->
-
-                      <!-- radio -->
-                      
-                      <!-- /radio -->
-
-                      <!-- countries -->
-                      
-                      <!-- /countries -->
-
-
-
-
-
-                    </div>
-                  </div>
-                
-              </div>
-
-              
-
-              <!-- Privacy policy -->
-              
-              <!-- /Privacy policy -->
-
-              
-
-              
-
-              
-
-
-
-
-
-
-              
-              <input type="hidden" name="ml-submit" value="1">
-
-              <div class="ml-form-embedSubmit">
-                
-                  <button type="submit" class="primary">Subscribe</button>
-                
-                <button disabled="disabled" style="display: none;" type="button" class="loading">
-                  <div class="ml-form-embedSubmitLoad"></div>
-                  <span class="sr-only">Loading...</span>
-                </button>
-              </div>
-
-              
-              <input type="hidden" name="anticsrf" value="true">
-            </form>
-          </div>
-
-          <div class="ml-form-successBody row-success" style="display: none">
-
-            <div class="ml-form-successContent">
-              
-                <h4>You're on the list! 🎀</h4>
-                <p>The Birthday Drop is officially coming your way. Keep an eye on your inbox for early access and the secret launch password.</p>
-              
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-  
-
-  
-  
-  <script>
-    function ml_webform_success_38399192() {
-      var $ = ml_jQuery || jQuery;
-      $('.ml-subscribe-form-38399192 .row-success').show();
-      $('.ml-subscribe-form-38399192 .row-form').hide();
-    }
-      </script>
-  
-  
-      <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
-        <script>
-            fetch("https://assets.mailerlite.com/jsonp/2186517/forms/181792171737744426/takel")
-        </script>
-  <div class="ml-embedded" data-form="WaeYdg"></div>
-
-<footer>
-    <p>&copy; 2026 Kissed & Lifted. Stay Soft. Stay Lifted.</p>
-</footer>
-
-</body>
-</html>

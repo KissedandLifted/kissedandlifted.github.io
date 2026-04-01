@@ -165,19 +165,20 @@ footer { padding: 40px; font-size: 14px; background: white; border-top: 1px soli
     text-align: center;
 }
 
-#product-component-14932693385581 {
+/* This forces the internal Shopify container to stop leaning left */
+#product-component-14932693385581 .shopify-buy__product {
     display: flex !important;
-    justify-content: center !important;
+    flex-direction: column !important;
     align-items: center !important;
-    flex-direction: column;
-    width: 100%;
-    margin: 40px auto;
+    text-align: center !important;
+    margin: 0 auto !important;
 }
 
-/* Ensures the Shopify iframe itself centers */
-#product-component-14932693385581 iframe {
+/* This targets the button specifically inside that container */
+#product-component-14932693385581 .shopify-buy__btn-wrapper {
     margin: 0 auto !important;
-    display: block !important;
+    display: flex !important;
+    justify-content: center !important;
 }
   
 /* CLEAN COSMETIC SPARKLE CURSOR */

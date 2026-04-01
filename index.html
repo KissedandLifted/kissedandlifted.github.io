@@ -82,13 +82,14 @@ header {
 
 /* SECTIONS */
 ./* SECTIONS */
-.section { padding: 70px 20px; max-width: 900px; margin: auto; }
+.section { padding: 40px 20px; max-width: 1200px; margin: auto; }
 h2 { 
   font-family: 'Playfair Display', serif; 
   color: #D8A3B6; 
-  font-size: 48px; /* Changed from 32px to 48px */
+  font-size: 32px; 
   margin-bottom: 20px; 
-  font-weight: 700; /* Added for extra 'Boss' energy */
+  text-align: center; /* Ensure this says center! */
+  width: 100%; /* Forces the text to take up the full width so it can center properly */
 }
 
 
@@ -159,11 +160,10 @@ footer { padding: 40px; font-size: 14px; background: white; border-top: 1px soli
   .products { flex-direction: column; align-items: center; }
 }
 /* Center the Shopify Buy Button and Product Info */
-#product-list {
-    display: none; /* Keep this as is, the script will change it to block */
-    width: 100%;
-    text-align: center;
-}
+<div id="product-list" class="flex flex-col items-center text-center py-16 px-6 max-w-7xl mx-auto">
+    <h2 class="section-title">The Lip Care Line</h2>
+    <div id="product-component-14932693385581" class="mx-auto"></div>
+</div>
 
 #product-component-14932693385581 {
     display: flex !important;
@@ -242,7 +242,15 @@ background-color: #5a4a4a;
     margin-top: 20px !important;
 }
 
+/* Shrinks the invisible 'box' around the Shopify button */
+.shopify-buy-frame {
+    margin-bottom: -20px !important; 
+    margin-top: -10px !important;
+}
 
+.product-card {
+    margin-bottom: 10px !important; /* Reduces space under each card */
+}
     
 </style>
 

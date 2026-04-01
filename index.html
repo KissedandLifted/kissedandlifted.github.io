@@ -351,7 +351,7 @@ window.onload = function() {
     node: document.getElementById('product-component-14932693385581'),
     options: {
         "product": {
-            "layout": "horizontal", // Add this to stop the giant vertical image
+            "layout": "vertical", // Add this to stop the giant vertical image
             "contents": {
                 "img": false,      // Change this to false to KILL the image
                 "title": false,    // Change to false to hide the duplicate title
@@ -1158,28 +1158,6 @@ window.onload = function() {
   Soft lips. Big energy.
 </footer>
   
-<script>
-    function updateBirthdayTimer() {
-        const launchDate = new Date("March 30, 2026 00:00:00").getTime();
-        const now = new Date().getTime();
-        const diff = launchDate - now;
-
-        if (diff <= 0) {
-            document.getElementById("timer").innerHTML = "WE ARE LIVE!";
-            return;
-        }
-
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-        document.getElementById("timer").innerHTML = 
-            days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-    }
-    updateBirthdayTimer();
-    setInterval(updateBirthdayTimer, 1000);
-</script>
 <button onclick="topFunction()" id="topBtn" title="Go to top">↑</button>
   <script>
 let mybutton = document.getElementById("topBtn");

@@ -164,21 +164,31 @@ footer { padding: 40px; font-size: 14px; background: white; border-top: 1px soli
     width: 100%;
     text-align: center;
 }
-
-/* This forces the internal Shopify container to stop leaning left */
-#product-component-14932693385581 .shopify-buy__product {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+/* 1. Center the main container */
+#product-component-14932693385581 {
+    display: block !important;
+    width: 100% !important;
     text-align: center !important;
     margin: 0 auto !important;
 }
 
-/* This targets the button specifically inside that container */
-#product-component-14932693385581 .shopify-buy__btn-wrapper {
+/* 2. Force the Shopify 'Product' wrapper to be a single centered column */
+#product-component-14932693385581 .shopify-buy__product {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    max-width: 100% !important;
+    text-align: center !important;
     margin: 0 auto !important;
+}
+
+/* 3. Ensure the button itself has no side margins */
+#product-component-14932693385581 .shopify-buy__btn-wrapper {
     display: flex !important;
     justify-content: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
 }
   
 /* CLEAN COSMETIC SPARKLE CURSOR */

@@ -165,21 +165,24 @@ footer { padding: 40px; font-size: 14px; background: white; border-top: 1px soli
     <div id="product-component-14932693385581" class="mx-auto"></div>
 </div>
 
+/* Update this specific block */
 #product-component-14932693385581 {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     flex-direction: column;
     width: 100%;
-    margin: 40px auto;
+    margin: 0 auto; /* Changed from 40px auto to 0 auto to kill extra space */
+    text-align: center !important;
 }
 
-/* Ensures the Shopify iframe itself centers */
-#product-component-14932693385581 iframe {
+/* Add this right below it to force the Shopify 'internal' container to center */
+#product-component-14932693385581 > div {
     margin: 0 auto !important;
-    display: block !important;
+    display: flex !important;
+    justify-content: center !important;
 }
-  
+
 /* CLEAN COSMETIC SPARKLE CURSOR */
 html, body {
     cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23D8A3B6' d='M12 0l2.5 9.5L24 12l-9.5 2.5L12 24l-2.5-9.5L0 12l9.5-2.5z'/%3E%3C/svg%3E"), auto;
